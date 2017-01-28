@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cvrfdoc xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.icasi.org/CVRF/schema/cvrf/1.1">
+  <DocumentTitle>Cisco WebEx Browser Extension Remote Code Execution Vulnerability</DocumentTitle>
+  <DocumentType>Cisco Security Advisory</DocumentType>
+  <DocumentPublisher Type="Vendor">
+    <ContactDetails>Emergency Support:
++1 877 228 7302 (toll-free within North America)
++1 408 525 6532 (International direct-dial)
+Non-emergency Support:
+Email: psirt@cisco.com
+Support requests that are received via e-mail are typically acknowledged within 48 hours.</ContactDetails>
+    <IssuingAuthority>Cisco product security incident response is the responsibility of the Cisco Product Security Incident Response Team (PSIRT). The Cisco PSIRT is a dedicated, global team that manages the receipt, investigation, and public reporting of security vulnerability information that is related to Cisco products and networks. The on-call Cisco PSIRT works 24x7 with Cisco customers, independent security researchers, consultants, industry organizations, and other vendors to identify possible security issues with Cisco products and networks.
+More information can be found in Cisco Security Vulnerability Policy available at http://www.cisco.com/web/about/security/psirt/security_vulnerability_policy.html</IssuingAuthority>
+  </DocumentPublisher>
+  <DocumentTracking>
+    <Identification>
+      <ID>cisco-sa-20170124-webex</ID>
+    </Identification>
+    <Status>Interim</Status>
+    <Version>1.3</Version>
+    <RevisionHistory>
+      <Revision>
+        <Number>1.0</Number>
+        <Date>2017-01-24T18:56:40</Date>
+        <Description>Initial public release.</Description>
+      </Revision>
+      <Revision>
+        <Number>1.1</Number>
+        <Date>2017-01-25T21:28:15</Date>
+        <Description>Updated details to better explain the vulnerability.  Updated fixed software information to indicate that No Fixes are currently available.  Previous release of the WebEx Plugin for Chrome version 1.0.5 was incomplete.</Description>
+      </Revision>
+      <Revision>
+        <Number>1.2</Number>
+        <Date>2017-01-26T18:26:33</Date>
+        <Description>Updated summary to include Cisco WebEx Extension update. Updated Fixed Software to reflect Cisco WebEx Extension update for Chrome being available and added Cisco WebEx Meetings bug. Updated Vulnerable Products to no longer reflect Chrome. Updated Products Confirmed Not Vulnerable to reflect Chrome.</Description>
+      </Revision>
+      <Revision>
+        <Number>1.3</Number>
+        <Date>2017-01-27T19:52:01</Date>
+        <Description>Updated summary to include information about Firefox.
+Updated Vulnerable Products to include additional details about browser extension identification.</Description>
+      </Revision>
+    </RevisionHistory>
+    <InitialReleaseDate>2017-01-24T18:30:00</InitialReleaseDate>
+    <CurrentReleaseDate>2017-01-27T19:52:01</CurrentReleaseDate>
+    <Generator>
+      <Engine>TVCE</Engine>
+    </Generator>
+  </DocumentTracking>
+  <DocumentNotes>
+    <Note Title="Summary" Type="General" Ordinal="1">A vulnerability in Cisco WebEx browser extensions could allow an unauthenticated, remote attacker to execute arbitrary code with the privileges of the affected browser on an affected system. This vulnerability affects the browser extensions for Cisco WebEx Meetings Server and Cisco WebEx Meetings Center when they are running on Microsoft Windows.
+
+
+
+
+The vulnerability is due to a design defect in an application programing interface (API) response parser within the plugin. An attacker that can convince an affected user to visit an attacker-controlled web page or follow an attacker-supplied link with an affected browser could exploit the vulnerability.  If successful, the attacker could execute arbitrary code with the privileges of the affected browser.
+
+
+
+
+Cisco has released software updates for Google Chrome that address this vulnerability. Cisco is currently developing updates that address this vulnerability for Firefox and Internet Explorer. There are no workarounds that address this vulnerability.
+
+
+
+This advisory is available at the following link:
+
+https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170124-webex["https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170124-webex"]</Note>
+  </DocumentNotes>
+  <DocumentReferences>
+    <Reference Type="Self">
+      <URL>https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170124-webex</URL>
+      <Description>Cisco WebEx Browser Extension Remote Code Execution Vulnerability</Description>
+    </Reference>
+  </DocumentReferences>
+  <ProductTree xmlns="http://www.icasi.org/CVRF/schema/prod/1.1">
+    <Branch Name="Cisco" Type="Vendor">
+      <Branch Name="Cisco WebEx Meeting Center" Type="Product Name">
+        <Branch Name="T29" Type="Product Version">
+          <Branch Name="Base" Type="Service Pack">
+            <FullProductName ProductID="CVRFPID-225114">Cisco Cisco WebEx Meeting Center T29 Base</FullProductName>
+          </Branch>
+        </Branch>
+        <Branch Name="T30" Type="Product Version">
+          <Branch Name="Base" Type="Service Pack">
+            <FullProductName ProductID="CVRFPID-225116">Cisco Cisco WebEx Meeting Center T30 Base</FullProductName>
+          </Branch>
+        </Branch>
+        <Branch Name="T31" Type="Product Version">
+          <Branch Name="Base" Type="Service Pack">
+            <FullProductName ProductID="CVRFPID-225118">Cisco Cisco WebEx Meeting Center T31 Base</FullProductName>
+          </Branch>
+        </Branch>
+        <Branch Name="2.6" Type="Product Version">
+          <Branch Name="Base" Type="Service Pack">
+            <FullProductName ProductID="CVRFPID-225131">Cisco Cisco WebEx Meeting Center 2.6 Base</FullProductName>
+          </Branch>
+        </Branch>
+        <Branch Name="2.7" Type="Product Version">
+          <Branch Name="Base" Type="Service Pack">
+            <FullProductName ProductID="CVRFPID-225133">Cisco Cisco WebEx Meeting Center 2.7 Base</FullProductName>
+          </Branch>
+        </Branch>
+      </Branch>
+    </Branch>
+  </ProductTree>
+  <Vulnerability Ordinal="1" xmlns="http://www.icasi.org/CVRF/schema/vuln/1.1">
+    <Title>Cisco WebEx Browser Extension Remote Code Execution Vulnerability</Title>
+    <ID SystemName="Cisco Bug ID">CSCvc86959</ID>
+    <Notes>
+      <Note Title="Summary" Type="Summary" Ordinal="1">A vulnerability in Cisco WebEx browser extensions could allow an unauthenticated, remote attacker to execute arbitrary code with the privileges of the affected browser on an affected system. This vulnerability affects the browser extensions for Cisco WebEx Meetings Server and Cisco WebEx Meetings Center when they are running on Microsoft Windows.
+
+
+
+
+The vulnerability is due to a design defect in an application programing interface (API) response parser within the plugin. An attacker that can convince an affected user to visit an attacker-controlled web page or follow an attacker-supplied link with an affected browser could exploit the vulnerability.  If successful, the attacker could execute arbitrary code with the privileges of the affected browser.</Note>
+      <Note Title="Cisco Bug IDs" Type="Other" Ordinal="3">CSCvc86959,CSCvc88194,CSCvc88535</Note>
+    </Notes>
+    <CVE>CVE-2017-3823</CVE>
+    <ProductStatuses>
+      <Status Type="Known Affected">
+        <ProductID>CVRFPID-97151</ProductID>
+        <ProductID>CVRFPID-225114</ProductID>
+        <ProductID>CVRFPID-225116</ProductID>
+        <ProductID>CVRFPID-225118</ProductID>
+        <ProductID>CVRFPID-225131</ProductID>
+        <ProductID>CVRFPID-225133</ProductID>
+      </Status>
+    </ProductStatuses>
+    <CVSSScoreSets>
+      <ScoreSet>
+        <BaseScore>8.8</BaseScore>
+        <Vector>CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/</Vector>
+      </ScoreSet>
+    </CVSSScoreSets>
+    <Remediations>
+      <Remediation Type="Workaround">
+        <Description>There are no workarounds that address this vulnerability. However, administrators and users of Windows 10 systems may utilize Microsoft Edge to join and participate in WebEx sessions as Microsoft Edge is not affected by this vulnerability. Additionally, administrators and users can remove all WebEx software from a Windows system by using the Meeting Services Removal Tool, which is available from https://help.webex.com/docs/DOC-2672["https://help.webex.com/docs/DOC-2672"].
+
+
+
+Customers who currently have web proxies or web gateways in their environment can create a URL filtering policy to block web requests matching the following condition:
+
+
+
+
+URL requests containing the string pattern "cwcsf-nativemsg-iframe-43c85c0d-d633-af5e-c056-32dc7efc570b.html"
+
+and 
+
+URL hostname not matching the known customer's WebEx site URL (e.g. company.webex.com in https://company.webex.com/cwcsf-nativemsg-iframe-43c85c0d-d633-af5e-c056-32dc7efc570b.html)
+
+</Description>
+      </Remediation>
+    </Remediations>
+    <References>
+      <Reference Type="Self">
+        <URL>https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170124-webex</URL>
+        <Description>Cisco WebEx Browser Extension Remote Code Execution Vulnerability</Description>
+      </Reference>
+    </References>
+  </Vulnerability>
+</cvrfdoc>
