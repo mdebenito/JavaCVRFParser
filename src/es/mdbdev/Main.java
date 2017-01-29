@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         CvrfParser parser = new CvrfParser("data/cisco-sa-20170124-webex_cvrf.xml");
-        CvrfParser parser2 = new CvrfParser("data/MS17-004.xml");
+        CvrfParser parser2 = new CvrfParser("data/MS16-120.xml");
         try {
             Cvrfdoc res = parser.parseCvrfFile();
             System.out.println(res);

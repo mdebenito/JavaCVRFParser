@@ -71,7 +71,8 @@ public class CvrfParser {
         private boolean bNote = false;
         private boolean bAggregateSeverity = false;
         private boolean bEngine = false;
-        private boolean bFullProductName = true;
+        private boolean bFullProductName = false;
+        private boolean bRevision = false;
 
         public XMLHandler() {
 
@@ -129,13 +130,14 @@ public class CvrfParser {
             }else if (qName.equalsIgnoreCase("Revision")
                     || qName.equalsIgnoreCase("cvrf:Revision")) {
                 crrntRev = new Revision();
+                bRevision = true;
             }else if (qName.equalsIgnoreCase("Number")
                     || qName.equalsIgnoreCase("cvrf:Number")) {
                 bRevisionNumber = true;
             }else if (qName.equalsIgnoreCase("Date")
                     || qName.equalsIgnoreCase("cvrf:Date")) {
                 bRevisionDate = true;
-            }else if (qName.equalsIgnoreCase("Description")
+            }else if ((qName.equalsIgnoreCase("Description") && bRevision)
                     || qName.equalsIgnoreCase("cvrf:Description")) {
                 bRevisionDescription = true;
             }else if (qName.equalsIgnoreCase("InitialReleaseDate")
@@ -242,6 +244,7 @@ public class CvrfParser {
                     || qName.equalsIgnoreCase("cvrf:Revision")) {
                 cvrfDocument.getDocumentTracking().getRevisionHistory().addRevision(crrntRev);
                 crrntRev = null;
+                bRevision = false;
             }else if (qName.equalsIgnoreCase("DocumentNotes")
                     || qName.equalsIgnoreCase("cvrf:DocumentNotes")) {
                 bDocumentNotes = false;

@@ -1,0 +1,1495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cvrf:cvrfdoc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cvrf-common="http://www.icasi.org/CVRF/schema/common/1.1" xmlns:prod="http://www.icasi.org/CVRF/schema/prod/1.1" xmlns:vuln="http://www.icasi.org/CVRF/schema/vuln/1.1" xmlns:cvrf="http://www.icasi.org/CVRF/schema/cvrf/1.1" xmlns:wbld="http://schemas.microsoft.com/office/word/2004/5/build" xmlns:scap-core="http://scap.nist.gov/schema/scap-core/1.0" xmlns:cvssv2="http://scap.nist.gov/schema/cvss-v2/1.0" xmlns:cpe-lang="http://cpe.mitre.org/language/2.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2012-04-25T17:42:50" xmlns:xd="http://schemas.microsoft.com/office/infopath/2003">
+  <cvrf:DocumentTitle xml:lang="en">Microsoft Security Bulletin MS16-120: Security Update for Microsoft Graphics Component </cvrf:DocumentTitle>
+	<cvrf:DocumentType xml:lang="en">Security Bulletin</cvrf:DocumentType>
+	<cvrf:DocumentPublisher Type="Vendor" VendorID="">
+		<cvrf:ContactDetails xml:lang="en">secure@microsoft.com and http://www.microsoft.com/msrc</cvrf:ContactDetails>
+		<cvrf:IssuingAuthority xml:lang="en">The Microsoft Security Response Center (MSRC) identifies, monitors, resolves, and responds to security incidents and Microsoft software security vulnerabilities. For more information, see http://www.microsoft.com/security/msrc.</cvrf:IssuingAuthority>
+	</cvrf:DocumentPublisher>
+	<cvrf:DocumentTracking>
+		<cvrf:Identification>
+			<cvrf:ID xml:lang="en">MS16-120</cvrf:ID>
+			<cvrf:Alias xml:lang="en">3148522</cvrf:Alias>
+		</cvrf:Identification>
+		<cvrf:Status>Final</cvrf:Status>
+		<cvrf:Version>1.0</cvrf:Version>
+		<cvrf:RevisionHistory>
+			<cvrf:Revision>
+				<cvrf:Number>1.0</cvrf:Number>
+				<cvrf:Date>2016-10-11T00:00:00-07:00</cvrf:Date>
+				<cvrf:Description xml:lang="en">Bulletin published.</cvrf:Description>
+			</cvrf:Revision>
+		</cvrf:RevisionHistory>
+		<cvrf:InitialReleaseDate>2016-10-11T00:00:00-07:00</cvrf:InitialReleaseDate>
+		<cvrf:CurrentReleaseDate>2016-10-11T00:00:00-07:00</cvrf:CurrentReleaseDate>
+	</cvrf:DocumentTracking>
+	<cvrf:DocumentNotes>
+		<cvrf:Note Title="Legal Disclaimer" Audience="Public" Type="Legal Disclaimer" Ordinal="1" xml:lang="en">The information provided in the Microsoft Knowledge Base is provided "as is" without warranty of any kind. Microsoft disclaims all warranties, either express or implied, including the warranties of merchantability and fitness for a particular purpose. In no event shall Microsoft Corporation or its suppliers be liable for any damages whatsoever including direct, indirect, incidental, consequential, loss of business profits or special damages, even if Microsoft Corporation or its suppliers have been advised of the possibility of such damages. Some states do not allow the exclusion or limitation of liability for consequential or incidental damages so the foregoing limitation may not apply.</cvrf:Note>
+		<cvrf:Note Title="Executive Summary" Audience="Public" Type="Summary" Ordinal="2" xml:lang="en">This security update resolves vulnerabilities in Microsoft Windows, Microsoft Office, Skype for Business, Silverlight and Microsoft Lync. The most serious of these vulnerabilities could allow remote code execution if a user either visits a specially crafted website or opens a specially crafted document. Users whose accounts are configured to have fewer user rights on the system could be less impacted than users who operate with administrative user rights.</cvrf:Note>
+	</cvrf:DocumentNotes>
+	<cvrf:AggregateSeverity Namespace="" xml:lang="en">Critical</cvrf:AggregateSeverity>
+	<prod:ProductTree><prod:FullProductName ProductID="4393">Windows Vista Service Pack 2</prod:FullProductName><prod:FullProductName ProductID="9316">Windows Vista x64 Edition Service Pack 2</prod:FullProductName><prod:FullProductName ProductID="9312">Windows Server 2008 for 32-bit Systems Service Pack 2</prod:FullProductName><prod:FullProductName ProductID="9318">Windows Server 2008 for x64-based Systems Service Pack 2</prod:FullProductName><prod:FullProductName ProductID="9311">Windows Server 2008 for Itanium-Based Systems Service Pack 2</prod:FullProductName><prod:FullProductName ProductID="10047">Windows 7 for 32-bit Systems Service Pack 1</prod:FullProductName><prod:FullProductName ProductID="10048">Windows 7 for x64-based Systems Service Pack 1</prod:FullProductName><prod:FullProductName ProductID="10051">Windows Server 2008 R2 for x64-based Systems Service Pack 1</prod:FullProductName><prod:FullProductName ProductID="10050">Windows Server 2008 R2 for Itanium-Based Systems Service Pack 1</prod:FullProductName><prod:FullProductName ProductID="10481">Windows 8.1 for 32-bit Systems</prod:FullProductName><prod:FullProductName ProductID="10482">Windows 8.1 for x64-based Systems</prod:FullProductName><prod:FullProductName ProductID="10378">Windows Server 2012</prod:FullProductName><prod:FullProductName ProductID="10483">Windows Server 2012 R2</prod:FullProductName><prod:FullProductName ProductID="10484">Windows RT 8.1</prod:FullProductName><prod:FullProductName ProductID="10729">Windows 10 for 32-bit Systems</prod:FullProductName><prod:FullProductName ProductID="10735">Windows 10 for x64-based Systems</prod:FullProductName><prod:FullProductName ProductID="10789">Windows 10 Version 1511 for 32-bit Systems</prod:FullProductName><prod:FullProductName ProductID="10788">Windows 10 Version 1511 for x64-based Systems</prod:FullProductName><prod:FullProductName ProductID="10852">Windows 10 Version 1607 for 32-bit Systems</prod:FullProductName><prod:FullProductName ProductID="10853">Windows 10 Version 1607 for x64-based Systems</prod:FullProductName><prod:FullProductName ProductID="10287">Windows Server 2008 for 32-bit Systems Service Pack 2 (Server Core installation)</prod:FullProductName><prod:FullProductName ProductID="9344">Windows Server 2008 for x64-based Systems Service Pack 2 (Server Core installation)</prod:FullProductName><prod:FullProductName ProductID="10049">Windows Server 2008 R2 for x64-based Systems Service Pack 1 (Server Core installation)</prod:FullProductName><prod:FullProductName ProductID="10379">Windows Server 2012 (Server Core installation)</prod:FullProductName><prod:FullProductName ProductID="10543">Windows Server 2012 R2 (Server Core installation)</prod:FullProductName><prod:FullProductName ProductID="9195-4393">Microsoft .NET Framework 3.0 Service Pack 2 on Windows Vista Service Pack 2</prod:FullProductName><prod:FullProductName ProductID="9195-9316">Microsoft .NET Framework 3.0 Service Pack 2 on Windows Vista x64 Edition Service Pack 2</prod:FullProductName><prod:FullProductName ProductID="9195-9312">Microsoft .NET Framework 3.0 Service Pack 2 on Windows Server 2008 for 32-bit Systems Service Pack 2</prod:FullProductName><prod:FullProductName ProductID="9195-9318">Microsoft .NET Framework 3.0 Service Pack 2 on Windows Server 2008 for x64-based Systems Service Pack 2</prod:FullProductName><prod:FullProductName ProductID="9495-10047">Microsoft .NET Framework 3.5.1 on Windows 7 for 32-bit Systems Service Pack 1</prod:FullProductName><prod:FullProductName ProductID="9495-10048">Microsoft .NET Framework 3.5.1 on Windows 7 for x64-based Systems Service Pack 1</prod:FullProductName><prod:FullProductName ProductID="9495-10051">Microsoft .NET Framework 3.5.1 on Windows Server 2008 R2 for x64-based Systems Service Pack 1</prod:FullProductName><prod:FullProductName ProductID="2472-10481">Microsoft .NET Framework 3.5 on Windows 8.1 for 32-bit Systems</prod:FullProductName><prod:FullProductName ProductID="2472-10482">Microsoft .NET Framework 3.5 on Windows 8.1 for x64-based Systems</prod:FullProductName><prod:FullProductName ProductID="2472-10378">Microsoft .NET Framework 3.5 on Windows Server 2012</prod:FullProductName><prod:FullProductName ProductID="2472-10483">Microsoft .NET Framework 3.5 on Windows Server 2012 R2</prod:FullProductName><prod:FullProductName ProductID="2472-10729">Microsoft .NET Framework 3.5 on Windows 10 for 32-bit Systems</prod:FullProductName><prod:FullProductName ProductID="2472-10735">Microsoft .NET Framework 3.5 on Windows 10 for 64-bit Systems</prod:FullProductName><prod:FullProductName ProductID="9495-10049">Microsoft .NET Framework 3.5.1 on Windows Server 2008 R2 for x64-based Systems Service Pack 1 (Server Core installation)</prod:FullProductName><prod:FullProductName ProductID="2472-10379">Microsoft .NET Framework 3.5 on Windows Server 2012 (Server Core installation)</prod:FullProductName><prod:FullProductName ProductID="2472-10543">Microsoft .NET Framework 3.5 on Windows Server 2012 R2 (Server Core installation)</prod:FullProductName><prod:FullProductName ProductID="10150">Microsoft Office 2007 Service Pack 3</prod:FullProductName><prod:FullProductName ProductID="10521">Microsoft Office 2010 Service Pack 2 (32-bit editions)</prod:FullProductName><prod:FullProductName ProductID="10522">Microsoft Office 2010 Service Pack 2 (64-bit editions)</prod:FullProductName><prod:FullProductName ProductID="1160">Microsoft Word Viewer</prod:FullProductName><prod:FullProductName ProductID="10290">Microsoft Live Meeting 2007 Console</prod:FullProductName><prod:FullProductName ProductID="10069">Microsoft Lync 2010 (32-bit)</prod:FullProductName><prod:FullProductName ProductID="10303">Microsoft Lync 2010 (64-bit) </prod:FullProductName><prod:FullProductName ProductID="10268">Microsoft Lync 2010 Attendee (admin level install)</prod:FullProductName><prod:FullProductName ProductID="10295">Microsoft Lync 2010 Attendee (user level install)</prod:FullProductName><prod:FullProductName ProductID="10695">Microsoft Lync 2013 Service Pack 1 (32-bit) (Skype for Business)</prod:FullProductName><prod:FullProductName ProductID="10696">Microsoft Lync Basic 2013 Service Pack 1 (32-bit) (Skype for Business)</prod:FullProductName><prod:FullProductName ProductID="10697">Microsoft Lync 2013 Service Pack 1 (64-bit) (Skype for Business</prod:FullProductName><prod:FullProductName ProductID="10698">Microsoft Lync Basic 2013 Service Pack 1 (64-bit) (Skype for Business)</prod:FullProductName><prod:FullProductName ProductID="10770">Skype for Business 2016 (32-bit editions)</prod:FullProductName><prod:FullProductName ProductID="10783">Skype for Business Basic 2016 (32-bit editions)</prod:FullProductName><prod:FullProductName ProductID="10771">Skype for Business 2016 (64-bit editions)</prod:FullProductName><prod:FullProductName ProductID="10784">Skype for Business Basic 2016 (64-bit editions)</prod:FullProductName><prod:FullProductName ProductID="10100">Microsoft Silverlight 5 when installed on Mac</prod:FullProductName><prod:FullProductName ProductID="10450">Microsoft Silverlight 5 Developer Runtime when installed on Mac</prod:FullProductName><prod:FullProductName ProductID="10451">Microsoft Silverlight 5 when installed on all supported releases of Microsoft Windows client</prod:FullProductName><prod:FullProductName ProductID="10099">Microsoft Silverlight 5 when installed on all supported releases of Microsoft Windows servers</prod:FullProductName><prod:FullProductName ProductID="10452">Microsoft Silverlight 5 Developer Runtime when installed on all supported releases of Microsoft Windows servers</prod:FullProductName><prod:FullProductName ProductID="10453">Microsoft Silverlight 5 Developer Runtime when installed on all supported releases of Microsoft Windows client</prod:FullProductName></prod:ProductTree>
+	<vuln:Vulnerability Ordinal="1">
+		<vuln:Title xml:lang="en">True Type Font Parsing Information Disclosure Vulnerability</vuln:Title>
+		<vuln:Notes>
+									<vuln:Note Type="Description" Ordinal="1" xml:lang="en">Multiple information disclosure vulnerabilities exist in the way that the Windows Graphics Device Interface (GDI) handles objects in memory, allowing an attacker to retrieve information from a targeted system. An attacker who successfully exploited these vulnerabilities could use the retrieved information to circumvent Address Space Layout Randomization (ASLR) in Windows, which helps guard against a broad class of vulnerabilities. By itself, the information disclosures do not allow arbitrary code execution; however, they could allow arbitrary code to be run if the attacker uses one in combination with another vulnerability, such as a remote code execution vulnerability, that can leverage the ASLR circumvention.</vuln:Note>
+								</vuln:Notes><vuln:CVE>CVE-2016-3209</vuln:CVE>
+		<vuln:ProductStatuses>
+			
+		<vuln:Status Type="Known Affected">
+									<vuln:ProductID>4393</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9316</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9312</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9318</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9311</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10047</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10048</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10051</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10050</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10481</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10482</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10378</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10483</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10484</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10729</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10735</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10789</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10788</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10852</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10853</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10287</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9344</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10049</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10379</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10543</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9195-4393</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9195-9316</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9195-9312</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9195-9318</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9495-10047</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9495-10048</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9495-10051</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>2472-10481</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>2472-10482</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>2472-10378</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>2472-10483</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>2472-10729</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>2472-10735</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>9495-10049</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>2472-10379</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>2472-10543</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10150</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10521</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10522</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>1160</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10290</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10069</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10303</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10268</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10295</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10695</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10696</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10697</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10698</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10770</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10783</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10771</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10784</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10100</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10450</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10451</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10099</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10452</vuln:ProductID>
+								</vuln:Status><vuln:Status Type="Known Affected">
+									<vuln:ProductID>10453</vuln:ProductID>
+								</vuln:Status></vuln:ProductStatuses>
+	<vuln:Threats>
+									<vuln:Threat Type="Impact" Date="2016-10-11T00:00:00-07:00">
+										<vuln:Description xml:lang="en">To exploit these vulnerabilities, an attacker would have to log on to an affected system and run a specially crafted application. </vuln:Description>
+									</vuln:Threat>
+								<vuln:Threat Type="Exploit Status">
+									<vuln:Description xml:lang="en">When this security bulletin was issued, Microsoft was not aware of attacks that attempt to exploit this vulnerability. </vuln:Description>
+								</vuln:Threat></vuln:Threats><vuln:Remediations>
+									<vuln:Remediation Type="Mitigation">
+										<vuln:Description xml:lang="en">Microsoft has not identified any mitigations for this vulnerability</vuln:Description>
+									</vuln:Remediation>
+								<vuln:Remediation Type="Workaround">
+									<vuln:Description xml:lang="en">Microsoft has not identified any workarounds for this vulnerability.</vuln:Description>
+								</vuln:Remediation><vuln:Remediation Type="Vendor Fix">
+									<vuln:Description xml:lang="en">MS16-120</vuln:Description>
+								<vuln:URL>http://technet.microsoft.com/en-us/security/bulletin/MS16-120</vuln:URL></vuln:Remediation></vuln:Remediations></vuln:Vulnerability>
+<vuln:Vulnerability Ordinal="2">
+		<vuln:Title xml:lang="en">GDI+ Information Disclosure Vulnerability</vuln:Title>
+		<vuln:Notes>
+									<vuln:Note Type="Description" Ordinal="1" xml:lang="en">Multiple information disclosure vulnerabilities exist in the way that the Windows Graphics Device Interface (GDI) handles objects in memory, allowing an attacker to retrieve information from a targeted system. An attacker who successfully exploited these vulnerabilities could use the retrieved information to circumvent Address Space Layout Randomization (ASLR) in Windows, which helps guard against a broad class of vulnerabilities. By itself, the information disclosures do not allow arbitrary code execution; however, they could allow arbitrary code to be run if the attacker uses one in combination with another vulnerability, such as a remote code execution vulnerability, that can leverage the ASLR circumvention.</vuln:Note>
+								</vuln:Notes><vuln:CVE>CVE-2016-3262</vuln:CVE>
+		<vuln:ProductStatuses>
+
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9311</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10050</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10484</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10789</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10788</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10852</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10853</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10287</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9344</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10150</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10521</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10522</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>1160</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10290</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10069</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10303</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10268</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10295</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10695</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10696</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10697</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10698</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10770</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10783</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10771</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10784</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10100</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10450</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10451</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10099</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10452</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10453</vuln:ProductID>
+      </vuln:Status>
+    </vuln:ProductStatuses>
+	<vuln:Threats>
+									<vuln:Threat Type="Impact">
+										<vuln:Description xml:lang="en">To exploit these vulnerabilities, an attacker would have to log on to an affected system and run a specially crafted application. </vuln:Description>
+									</vuln:Threat>
+								<vuln:Threat Type="Exploit Status">
+									<vuln:Description xml:lang="en">When this security bulletin was issued, Microsoft was not aware of attacks that attempt to exploit this vulnerability. </vuln:Description>
+								</vuln:Threat></vuln:Threats><vuln:Remediations>
+									<vuln:Remediation Type="Mitigation">
+										<vuln:Description xml:lang="en">Microsoft has not identified any mitigations for this vulnerability</vuln:Description>
+									</vuln:Remediation>
+								<vuln:Remediation Type="Workaround">
+									<vuln:Description xml:lang="en">Microsoft has not identified any workarounds for this vulnerability.</vuln:Description>
+								</vuln:Remediation><vuln:Remediation Type="Vendor Fix">
+									<vuln:Description xml:lang="en">MS16-120</vuln:Description>
+								<vuln:URL>http://technet.microsoft.com/en-us/security/bulletin/MS16-120</vuln:URL></vuln:Remediation></vuln:Remediations><vuln:Acknowledgments>
+									<vuln:Acknowledgment>
+										<vuln:Description xml:lang="en">Microsoft thanks Mateusz Jurczyk of Google Project Zero</vuln:Description>
+									<vuln:URL>http://www.google.com/</vuln:URL></vuln:Acknowledgment>
+								</vuln:Acknowledgments></vuln:Vulnerability><vuln:Vulnerability Ordinal="3">
+		<vuln:Title xml:lang="en">GDI+ Information Disclosure Vulnerability - CVE-2016-3263</vuln:Title>
+		<vuln:Notes>
+									<vuln:Note Type="Description" Ordinal="1" xml:lang="en">Multiple information disclosure vulnerabilities exist in the way that the Windows Graphics Device Interface (GDI) handles objects in memory, allowing an attacker to retrieve information from a targeted system. An attacker who successfully exploited these vulnerabilities could use the retrieved information to circumvent Address Space Layout Randomization (ASLR) in Windows, which helps guard against a broad class of vulnerabilities. By itself, the information disclosures do not allow arbitrary code execution; however, they could allow arbitrary code to be run if the attacker uses one in combination with another vulnerability, such as a remote code execution vulnerability, that can leverage the ASLR circumvention.</vuln:Note>
+								</vuln:Notes><vuln:CVE>CVE-2016-3263</vuln:CVE>
+		<vuln:ProductStatuses>
+
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9311</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10050</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10484</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10789</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10788</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10852</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10853</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10287</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9344</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10150</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10521</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10522</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>1160</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10290</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10069</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10303</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10268</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10295</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10695</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10696</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10697</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10698</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10770</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10783</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10771</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10784</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10100</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10450</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10451</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10099</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10452</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10453</vuln:ProductID>
+      </vuln:Status>
+    </vuln:ProductStatuses>
+	<vuln:Threats>
+									<vuln:Threat Type="Impact">
+										<vuln:Description xml:lang="en">To exploit these vulnerabilities, an attacker would have to log on to an affected system and run a specially crafted application.</vuln:Description>
+									</vuln:Threat>
+								<vuln:Threat Type="Exploit Status">
+									<vuln:Description xml:lang="en">When this security bulletin was issued, Microsoft was not aware of attacks that attempt to exploit this vulnerability. </vuln:Description>
+								</vuln:Threat></vuln:Threats><vuln:Remediations>
+									<vuln:Remediation Type="Mitigation">
+										<vuln:Description xml:lang="en">Microsoft has not identified any mitigations for this vulnerability</vuln:Description>
+									</vuln:Remediation>
+								<vuln:Remediation Type="Workaround">
+									<vuln:Description xml:lang="en">Microsoft has not identified any workarounds for this vulnerability.</vuln:Description>
+								</vuln:Remediation><vuln:Remediation Type="Vendor Fix">
+									<vuln:Description xml:lang="en">MS16-120</vuln:Description>
+								<vuln:URL>http://technet.microsoft.com/en-us/security/bulletin/MS16-120</vuln:URL></vuln:Remediation></vuln:Remediations><vuln:Acknowledgments>
+									<vuln:Acknowledgment>
+										<vuln:Description xml:lang="en">Microsoft thanks Mateusz Jurczyk of Google Project Zero</vuln:Description><vuln:URL>http://www.google.com/</vuln:URL>
+									</vuln:Acknowledgment>
+								</vuln:Acknowledgments></vuln:Vulnerability><vuln:Vulnerability Ordinal="4">
+		<vuln:Title xml:lang="en">Win32k Elevation of Privilege Vulnerability</vuln:Title>
+		<vuln:Notes>
+									<vuln:Note Type="Description" Ordinal="1" xml:lang="en">An elevation of privilege vulnerability exists in Windows when the Windows kernel fails to properly handle objects in memory. An attacker who successfully exploited this vulnerability could run arbitrary code in kernel mode. An attacker could then install programs; view, change, or delete data; or create new accounts with full user rights.</vuln:Note>
+								</vuln:Notes><vuln:CVE>CVE-2016-3270</vuln:CVE>
+		<vuln:ProductStatuses>
+
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9311</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10050</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10484</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10789</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10788</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10852</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10853</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10287</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9344</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10150</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10521</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10522</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>1160</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10290</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10069</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10303</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10268</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10295</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10695</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10696</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10697</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10698</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10770</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10783</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10771</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10784</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10100</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10450</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10451</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10099</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10452</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10453</vuln:ProductID>
+      </vuln:Status>
+    </vuln:ProductStatuses>
+	<vuln:Threats>
+									<vuln:Threat Type="Impact">
+										<vuln:Description xml:lang="en">An attacker who successfully exploited the vulnerabilities could run arbitrary code in kernel mode. An attacker could then install programs; view, change, or delete data; or create new accounts with full user rights.</vuln:Description>
+									</vuln:Threat>
+								<vuln:Threat Type="Impact">
+									<vuln:Description xml:lang="en">To exploit the vulnerabilities, an attacker would first have to log on to the system. An attacker could then run a specially crafted application that could exploit the vulnerabilities and take control of an affected system.</vuln:Description>
+								</vuln:Threat><vuln:Threat Type="Exploit Status">
+									<vuln:Description xml:lang="en">When this security bulletin was issued, Microsoft was not aware of attacks that attempt to exploit this vulnerability. </vuln:Description>
+								</vuln:Threat></vuln:Threats><vuln:Remediations>
+									<vuln:Remediation Type="Mitigation">
+										<vuln:Description xml:lang="en">Microsoft has not identified any mitigations for this vulnerability</vuln:Description>
+									</vuln:Remediation>
+								<vuln:Remediation Type="Workaround">
+									<vuln:Description xml:lang="en">Microsoft has not identified any workarounds for this vulnerability.</vuln:Description>
+								</vuln:Remediation><vuln:Remediation Type="Vendor Fix">
+									<vuln:Description xml:lang="en">MS16-120</vuln:Description>
+								<vuln:URL>http://technet.microsoft.com/en-us/security/bulletin/MS16-120</vuln:URL></vuln:Remediation></vuln:Remediations><vuln:Acknowledgments>
+									<vuln:Acknowledgment>
+										<vuln:Description xml:lang="en">Microsoft thanks pgboy, zhong_sf of Qihoo 360 Vulcan Team</vuln:Description><vuln:URL>http://weibo.com/pgboy1988</vuln:URL>
+									</vuln:Acknowledgment>
+								</vuln:Acknowledgments></vuln:Vulnerability><vuln:Vulnerability Ordinal="5">
+		<vuln:Title xml:lang="en">Windows Graphics Component RCE Vulnerability</vuln:Title>
+		<vuln:Notes>
+									<vuln:Note Type="Description" Ordinal="1" xml:lang="en">A remote code execution vulnerability exists when the Windows font library improperly handles specially crafted embedded fonts. An attacker who successfully exploits this vulnerability could take control of the affected system. An attacker could then install programs; view, change, or delete data; or create new accounts with full user rights. Users whose accounts are configured to have fewer user rights on the system could be less impacted than users who operate with administrative user rights.</vuln:Note>
+								</vuln:Notes><vuln:CVE>CVE-2016-3393</vuln:CVE>
+		<vuln:ProductStatuses>
+
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9311</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10050</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10484</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10789</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10788</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10852</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10853</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10287</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9344</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10150</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10521</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10522</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>1160</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10290</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10069</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10303</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10268</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10295</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10695</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10696</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10697</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10698</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10770</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10783</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10771</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10784</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10100</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10450</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10451</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10099</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10452</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>10453</vuln:ProductID>
+      </vuln:Status>
+    </vuln:ProductStatuses>
+	<vuln:Threats>
+									<vuln:Threat Type="Impact">
+										<vuln:Description xml:lang="en">An attacker who successfully exploited the vulnerabilities could run arbitrary code in kernel mode. An attacker could then install programs; view, change, or delete data; or create new accounts with full user rights.</vuln:Description>
+									</vuln:Threat>
+								<vuln:Threat Type="Impact">
+									<vuln:Description xml:lang="en">In a web-based attack scenario, an attacker could host a specially crafted website that is designed to exploit the vulnerability and then convince users to view the website. An attacker would have no way to force users to view the attacker-controlled content. Instead, an attacker would have to convince users to take action, typically by getting them to click a link in an email or Instant Messenger message that takes users to the attacker's website, or by opening an attachment sent through email.</vuln:Description>
+								</vuln:Threat><vuln:Threat Type="Impact">
+									<vuln:Description xml:lang="en">In a file sharing attack scenario, an attacker could provide a specially crafted document file that is designed to exploit the vulnerability, and then convince users to open the document file. The security update addresses the vulnerability by correcting how the Windows font library handles embedded fonts.</vuln:Description>
+								</vuln:Threat><vuln:Threat Type="Exploit Status">
+									<vuln:Description xml:lang="en">Microsoft is aware of limited, targeted attacks that attempt to exploit this vulnerability.</vuln:Description>
+								</vuln:Threat></vuln:Threats><vuln:Remediations>
+									<vuln:Remediation Type="Mitigation">
+										<vuln:Description xml:lang="en">Microsoft has not identified any mitigations for this vulnerability</vuln:Description>
+									</vuln:Remediation>
+								<vuln:Remediation Type="Workaround">
+									<vuln:Description xml:lang="en">Microsoft has not identified any workarounds for this vulnerability.</vuln:Description>
+								</vuln:Remediation><vuln:Remediation Type="Vendor Fix">
+									<vuln:Description xml:lang="en">MS16-120</vuln:Description>
+								<vuln:URL>http://technet.microsoft.com/en-us/security/bulletin/MS16-120</vuln:URL></vuln:Remediation></vuln:Remediations><vuln:Acknowledgments>
+									<vuln:Acknowledgment>
+										<vuln:Description xml:lang="en">Anton Ivanov of Kaspersky Lab</vuln:Description><vuln:URL>http://www.kaspersky.com/</vuln:URL>
+									</vuln:Acknowledgment>
+								</vuln:Acknowledgments></vuln:Vulnerability><vuln:Vulnerability Ordinal="6">
+		<vuln:Title xml:lang="en">GDI+ Remote Code Execution Vulnerability</vuln:Title>
+		<vuln:Notes>
+									<vuln:Note Type="Description" Ordinal="1" xml:lang="en">A remote code execution vulnerability exists when the Windows font library improperly handles specially crafted embedded fonts. An attacker who successfully exploits this vulnerability could take control of the affected system. An attacker could then install programs; view, change, or delete data; or create new accounts with full user rights. Users whose accounts are configured to have fewer user rights on the system could be less impacted than users who operate with administrative user rights.</vuln:Note>
+								</vuln:Notes><vuln:CVE>CVE-2016-3396</vuln:CVE>
+		<vuln:ProductStatuses>
+
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9311</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10050</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10484</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10789</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10788</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10852</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10853</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10287</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9344</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10150</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10521</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10522</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>1160</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10290</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10069</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10303</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10268</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10295</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10695</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10696</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10697</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10698</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10770</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10783</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10771</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10784</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10100</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10450</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10451</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10099</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10452</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10453</vuln:ProductID>
+      </vuln:Status>
+    </vuln:ProductStatuses>
+	<vuln:Threats>
+									<vuln:Threat Type="Impact">
+										<vuln:Description xml:lang="en">In a web-based attack scenario, an attacker could host a specially crafted website that is designed to exploit the vulnerability and then convince users to view the website. An attacker would have no way to force users to view the attacker-controlled content. Instead, an attacker would have to convince users to take action, typically by getting them to click a link in an email or Instant Messenger message that takes users to the attacker's website, or by opening an attachment sent through email.</vuln:Description>
+									</vuln:Threat>
+								<vuln:Threat Type="Impact">
+									<vuln:Description xml:lang="en">To exploit the vulnerabilities, an attacker would first have to log on to the system. An attacker could then run a specially crafted application that could exploit the vulnerabilities and take control of an affected system.</vuln:Description>
+								</vuln:Threat><vuln:Threat Type="Exploit Status">
+									<vuln:Description xml:lang="en">When this security bulletin was issued, Microsoft was not aware of attacks that attempt to exploit this vulnerability.</vuln:Description>
+								</vuln:Threat></vuln:Threats><vuln:Remediations>
+									<vuln:Remediation Type="Mitigation">
+										<vuln:Description xml:lang="en">Microsoft has not identified any mitigations for this vulnerability</vuln:Description>
+									</vuln:Remediation>
+								<vuln:Remediation Type="Workaround">
+									<vuln:Description xml:lang="en">Microsoft has not identified any workarounds for this vulnerability.</vuln:Description>
+								</vuln:Remediation><vuln:Remediation Type="Vendor Fix">
+									<vuln:Description xml:lang="en">MS16-120</vuln:Description>
+								<vuln:URL>http://technet.microsoft.com/en-us/security/bulletin/MS16-120</vuln:URL></vuln:Remediation></vuln:Remediations></vuln:Vulnerability><vuln:Vulnerability Ordinal="7">
+		<vuln:Title xml:lang="en">True Type Font Parsing Elevation of Privilege Vulnerability</vuln:Title>
+		<vuln:Notes>
+									<vuln:Note Type="Description" Ordinal="1" xml:lang="en">An elevation of privilege vulnerability exists when the Windows Graphics Component improperly handles objects in memory. An attacker who successfully exploits this vulnerability could run arbitrary code in kernel mode. An attacker could then install programs; view, change, or delete data; or create new accounts with full user rights.</vuln:Note>
+								</vuln:Notes><vuln:CVE>CVE-2016-7182</vuln:CVE>
+		<vuln:ProductStatuses>
+
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9311</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10050</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10484</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10789</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10788</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10852</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10853</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10287</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>9344</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-4393</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9316</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9312</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9195-9318</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10047</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10048</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10051</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10481</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10482</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10378</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10483</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10729</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10735</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>9495-10049</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10379</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Not Affected">
+        <vuln:ProductID>2472-10543</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10150</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10521</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10522</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>1160</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10290</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10069</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10303</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10268</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10295</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10695</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10696</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10697</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10698</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10770</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10783</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10771</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10784</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10100</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10450</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10451</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10099</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10452</vuln:ProductID>
+      </vuln:Status>
+      <vuln:Status Type="Known Affected">
+        <vuln:ProductID>10453</vuln:ProductID>
+      </vuln:Status>
+    </vuln:ProductStatuses>
+	<vuln:Threats>
+									<vuln:Threat Type="Impact">
+										<vuln:Description xml:lang="en">An attacker who successfully exploits this vulnerability could run arbitrary code in kernel mode. An attacker could then install programs; view, change, or delete data; or create new accounts with full user rights.</vuln:Description>
+									</vuln:Threat>
+								<vuln:Threat Type="Exploit Status">
+									<vuln:Description xml:lang="en">When this security bulletin was issued, Microsoft was not aware of attacks that attempt to exploit this vulnerability.</vuln:Description>
+								</vuln:Threat></vuln:Threats><vuln:Remediations>
+									<vuln:Remediation Type="Mitigation">
+										<vuln:Description xml:lang="en">Microsoft has not identified any mitigations for this vulnerability</vuln:Description>
+									</vuln:Remediation>
+								<vuln:Remediation Type="Workaround">
+									<vuln:Description xml:lang="en">Microsoft has not identified any workarounds for this vulnerability.</vuln:Description>
+								</vuln:Remediation><vuln:Remediation Type="Vendor Fix">
+									<vuln:Description xml:lang="en">MS16-120</vuln:Description>
+								<vuln:URL>http://technet.microsoft.com/en-us/security/bulletin/MS16-120</vuln:URL></vuln:Remediation></vuln:Remediations><vuln:Acknowledgments>
+									<vuln:Acknowledgment>
+										<vuln:Description xml:lang="en">Mateusz Jurczyk of Google Project Zero</vuln:Description><vuln:URL>http://www.google.com/</vuln:URL>
+									</vuln:Acknowledgment>
+								</vuln:Acknowledgments></vuln:Vulnerability></cvrf:cvrfdoc>
