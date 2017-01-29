@@ -13,6 +13,8 @@ public class Note
 
     private String Title;
 
+    private String audience;
+
     public String getContent ()
     {
         return content;
@@ -53,9 +55,18 @@ public class Note
         this.Title = Title;
     }
 
+    public void setAudience(String audience) {
+        this.audience = audience;
+    }
+    public String getAudience() {
+        return audience;
+    }
+
     @Override
     public String toString()
     {
         return "ClassPojo [content = "+content+", Type = "+Type+", Ordinal = "+Ordinal+", Title = "+Title+"]";
     }
+
+
 }

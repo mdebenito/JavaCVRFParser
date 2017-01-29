@@ -12,6 +12,8 @@ import es.mdbdev.model.cvrf.vulnerability.Vulnerability;
  */
 public class Cvrfdoc
 {
+    private String aggregateSeverity;
+
     private es.mdbdev.model.cvrf.producttree.ProductTree ProductTree;
 
     private es.mdbdev.model.cvrf.documentpublisher.DocumentPublisher DocumentPublisher;
@@ -120,9 +122,17 @@ public class Cvrfdoc
         this.Vulnerability = Vulnerability;
     }
 
+    public String getAggregateSeverity() {
+        return aggregateSeverity;
+    }
+
     @Override
     public String toString()
     {
         return "ClassPojo [ProductTree = "+ProductTree+", DocumentPublisher = "+DocumentPublisher+", DocumentTitle = "+DocumentTitle+", DocumentTracking = "+DocumentTracking+", DocumentNotes = "+DocumentNotes+", DocumentReferences = "+DocumentReferences+", xmlns = "+xmlns+", DocumentType = "+DocumentType+", Vulnerability = "+Vulnerability+"]";
+    }
+
+    public void setAggregateSeverity(String aggregateSeverity) {
+        this.aggregateSeverity = aggregateSeverity;
     }
 }

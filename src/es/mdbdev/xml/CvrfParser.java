@@ -2,11 +2,12 @@ package es.mdbdev.xml;
 
 import es.mdbdev.model.cvrf.CVRFDocument;
 import es.mdbdev.model.cvrf.Cvrfdoc;
+import es.mdbdev.model.cvrf.documentnotes.DocumentNotes;
+import es.mdbdev.model.cvrf.documentnotes.Note;
 import es.mdbdev.model.cvrf.documentpublisher.DocumentPublisher;
-import es.mdbdev.model.cvrf.documenttracking.DocumentTracking;
-import es.mdbdev.model.cvrf.documenttracking.Identification;
-import es.mdbdev.model.cvrf.documenttracking.Revision;
-import es.mdbdev.model.cvrf.documenttracking.RevisionHistory;
+import es.mdbdev.model.cvrf.documenttracking.*;
+import es.mdbdev.model.cvrf.producttree.FullProductName;
+import es.mdbdev.model.cvrf.producttree.ProductTree;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -49,6 +50,8 @@ public class CvrfParser {
         private Cvrfdoc cvrfDocument;
 
         private Revision crrntRev = null;
+        private Note crrntDocumentNote = null;
+        private FullProductName crrntFullProductName = null;
 
 
         private boolean bDocType = false;
@@ -64,6 +67,11 @@ public class CvrfParser {
         private boolean bRevisionDescription = false;
         private boolean bInitialReleaseDate = false;
         private boolean bCurrentReleaseDate = false;
+        private boolean bDocumentNotes = false;
+        private boolean bNote = false;
+        private boolean bAggregateSeverity = false;
+        private boolean bEngine = false;
+        private boolean bFullProductName = true;
 
         public XMLHandler() {
 
@@ -136,6 +144,35 @@ public class CvrfParser {
             }else if (qName.equalsIgnoreCase("CurrentReleaseDate")
                     || qName.equalsIgnoreCase("cvrf:CurrentReleaseDate")) {
                 bCurrentReleaseDate = true;
+            }else if (qName.equalsIgnoreCase("Generator")
+                    || qName.equalsIgnoreCase("cvrf:Generator")) {
+                cvrfDocument.getDocumentTracking().setGenerator(new Generator());
+            }else if (qName.equalsIgnoreCase("Engine")
+                    || qName.equalsIgnoreCase("cvrf:Engine")) {
+                bEngine = true;
+            }else if (qName.equalsIgnoreCase("DocumentNotes")
+                    || qName.equalsIgnoreCase("cvrf:DocumentNotes")) {
+                bDocumentNotes = true;
+                cvrfDocument.setDocumentNotes(new DocumentNotes());
+            }else if ((qName.equalsIgnoreCase("Note") && bDocumentNotes)
+                    || (qName.equalsIgnoreCase("cvrf:Note")  && bDocumentNotes)) {
+                bNote = true;
+                crrntDocumentNote = new Note();
+                crrntDocumentNote.setOrdinal(attributes.getValue("Ordinal"));
+                crrntDocumentNote.setType(attributes.getValue("Type"));
+                crrntDocumentNote.setAudience(attributes.getValue("Audience"));
+                crrntDocumentNote.setTitle(attributes.getValue("Title"));
+            }else if (qName.equalsIgnoreCase("AggregateSeverity")
+                    || qName.equalsIgnoreCase("cvrf:AggregateSeverity")) {
+                bAggregateSeverity = true;
+            }else if (qName.equalsIgnoreCase("ProductTree")
+                    || qName.equalsIgnoreCase("prod:ProductTree")) {
+                cvrfDocument.setProductTree(new ProductTree());
+            }else if (qName.equalsIgnoreCase("FullProductName") //IGNORING BRANCHES FOR NOW
+                    || qName.equalsIgnoreCase("prod:FullProductName")) {
+                bFullProductName = true;
+                crrntFullProductName = new FullProductName();
+                crrntFullProductName.setProductID(attributes.getValue("ProductID"));
             }
         }
 
@@ -182,6 +219,16 @@ public class CvrfParser {
             }else if (bCurrentReleaseDate) {
                 cvrfDocument.getDocumentTracking().setCurrentReleaseDate(value);
                 bCurrentReleaseDate = false;
+            }else if (bEngine) {
+                cvrfDocument.getDocumentTracking().getGenerator().setEngine(value);
+                bEngine = false;
+            }else if (bNote && bDocumentNotes) {
+                crrntDocumentNote.setContent(value);
+            }else if (bAggregateSeverity) {
+                cvrfDocument.setAggregateSeverity(value);
+                bAggregateSeverity = false;
+            }else if (bFullProductName) {
+                crrntFullProductName.setContent(value);
             }
 
         }
@@ -194,6 +241,20 @@ public class CvrfParser {
             }else if (qName.equalsIgnoreCase("Revision")
                     || qName.equalsIgnoreCase("cvrf:Revision")) {
                 cvrfDocument.getDocumentTracking().getRevisionHistory().addRevision(crrntRev);
+                crrntRev = null;
+            }else if (qName.equalsIgnoreCase("DocumentNotes")
+                    || qName.equalsIgnoreCase("cvrf:DocumentNotes")) {
+                bDocumentNotes = false;
+            }else if ((qName.equalsIgnoreCase("Note") && bDocumentNotes)
+                    || (qName.equalsIgnoreCase("cvrf:Note")  && bDocumentNotes)){
+                cvrfDocument.getDocumentNotes().addNote(crrntDocumentNote);
+                crrntDocumentNote = null;
+                bNote = false;
+            }else if (qName.equalsIgnoreCase("FullProductName")
+                    || qName.equalsIgnoreCase("prod:FullProductName")) {
+                bFullProductName = false;
+                cvrfDocument.getProductTree().addFullProductName(crrntFullProductName);
+                crrntFullProductName = null;
             }
         }
 

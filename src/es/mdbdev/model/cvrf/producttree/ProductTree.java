@@ -1,37 +1,48 @@
 package es.mdbdev.model.cvrf.producttree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Mario on 28/01/2017.
  */
 public class ProductTree
 {
-    private Branch Branch;
+    private List<Branch> branches;
+    private List<FullProductName> fullProductNames;
 
-    private String xmlns;
-
-    public Branch getBranch ()
-    {
-        return Branch;
+    public void addBranch(Branch b){
+        branches.add(b);
+    }
+    public void addFullProductName(FullProductName n){
+        fullProductNames.add(n);
     }
 
-    public void setBranch (Branch Branch)
-    {
-        this.Branch = Branch;
+    public List<Branch> getBranches() {
+        return branches;
     }
 
-    public String getXmlns ()
-    {
-        return xmlns;
+    public void setBranches(List<Branch> branches) {
+        this.branches = branches;
     }
 
-    public void setXmlns (String xmlns)
-    {
-        this.xmlns = xmlns;
+    public List<FullProductName> getFullProductNames() {
+        return fullProductNames;
     }
+
+    public void setFullProductNames(List<FullProductName> fullProductNames) {
+        this.fullProductNames = fullProductNames;
+    }
+
+    public ProductTree(){
+        branches = new ArrayList<Branch>();
+        fullProductNames = new ArrayList<FullProductName>();
+    }
+
 
     @Override
     public String toString()
     {
-        return "ClassPojo [Branch = "+Branch+", xmlns = "+xmlns+"]";
+        return "ClassPojo [branches = "+branches+", FullProductNames = "+fullProductNames+"]";
     }
 }
