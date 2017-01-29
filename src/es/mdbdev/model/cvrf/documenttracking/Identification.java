@@ -7,6 +7,16 @@ public class Identification
 {
     private String ID;
 
+    public String getAlias() {
+        return Alias;
+    }
+
+    public void setAlias(String alias) {
+        Alias = alias;
+    }
+
+    private String Alias;
+
     public String getID ()
     {
         return ID;
@@ -20,6 +30,6 @@ public class Identification
     @Override
     public String toString()
     {
-        return "ClassPojo [ID = "+ID+"]";
+        return "ClassPojo [ID = "+ID+", Alias = "+Alias+"]";
     }
 }
