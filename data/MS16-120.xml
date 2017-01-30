@@ -33,7 +33,8 @@
 		<vuln:Title xml:lang="en">True Type Font Parsing Information Disclosure Vulnerability</vuln:Title>
 		<vuln:Notes>
 									<vuln:Note Type="Description" Ordinal="1" xml:lang="en">Multiple information disclosure vulnerabilities exist in the way that the Windows Graphics Device Interface (GDI) handles objects in memory, allowing an attacker to retrieve information from a targeted system. An attacker who successfully exploited these vulnerabilities could use the retrieved information to circumvent Address Space Layout Randomization (ASLR) in Windows, which helps guard against a broad class of vulnerabilities. By itself, the information disclosures do not allow arbitrary code execution; however, they could allow arbitrary code to be run if the attacker uses one in combination with another vulnerability, such as a remote code execution vulnerability, that can leverage the ASLR circumvention.</vuln:Note>
-								</vuln:Notes><vuln:CVE>CVE-2016-3209</vuln:CVE>
+								</vuln:Notes>
+        <vuln:CVE>CVE-2016-3209</vuln:CVE>
 		<vuln:ProductStatuses>
 			
 		<vuln:Status Type="Known Affected">
@@ -171,20 +172,25 @@
 									</vuln:Threat>
 								<vuln:Threat Type="Exploit Status">
 									<vuln:Description xml:lang="en">When this security bulletin was issued, Microsoft was not aware of attacks that attempt to exploit this vulnerability. </vuln:Description>
-								</vuln:Threat></vuln:Threats><vuln:Remediations>
+								</vuln:Threat>
+    </vuln:Threats>
+        <vuln:Remediations>
 									<vuln:Remediation Type="Mitigation">
 										<vuln:Description xml:lang="en">Microsoft has not identified any mitigations for this vulnerability</vuln:Description>
 									</vuln:Remediation>
 								<vuln:Remediation Type="Workaround">
 									<vuln:Description xml:lang="en">Microsoft has not identified any workarounds for this vulnerability.</vuln:Description>
-								</vuln:Remediation><vuln:Remediation Type="Vendor Fix">
-									<vuln:Description xml:lang="en">MS16-120</vuln:Description>
-								<vuln:URL>http://technet.microsoft.com/en-us/security/bulletin/MS16-120</vuln:URL></vuln:Remediation></vuln:Remediations></vuln:Vulnerability>
+								</vuln:Remediation>
+            <vuln:Remediation Type="Vendor Fix">
+                <vuln:Description xml:lang="en">MS16-120</vuln:Description>
+                <vuln:URL>http://technet.microsoft.com/en-us/security/bulletin/MS16-120</vuln:URL>
+        </vuln:Remediation></vuln:Remediations></vuln:Vulnerability>
 <vuln:Vulnerability Ordinal="2">
 		<vuln:Title xml:lang="en">GDI+ Information Disclosure Vulnerability</vuln:Title>
 		<vuln:Notes>
-									<vuln:Note Type="Description" Ordinal="1" xml:lang="en">Multiple information disclosure vulnerabilities exist in the way that the Windows Graphics Device Interface (GDI) handles objects in memory, allowing an attacker to retrieve information from a targeted system. An attacker who successfully exploited these vulnerabilities could use the retrieved information to circumvent Address Space Layout Randomization (ASLR) in Windows, which helps guard against a broad class of vulnerabilities. By itself, the information disclosures do not allow arbitrary code execution; however, they could allow arbitrary code to be run if the attacker uses one in combination with another vulnerability, such as a remote code execution vulnerability, that can leverage the ASLR circumvention.</vuln:Note>
-								</vuln:Notes><vuln:CVE>CVE-2016-3262</vuln:CVE>
+            <vuln:Note Type="Description" Ordinal="1" xml:lang="en">Multiple information disclosure vulnerabilities exist in the way that the Windows Graphics Device Interface (GDI) handles objects in memory, allowing an attacker to retrieve information from a targeted system. An attacker who successfully exploited these vulnerabilities could use the retrieved information to circumvent Address Space Layout Randomization (ASLR) in Windows, which helps guard against a broad class of vulnerabilities. By itself, the information disclosures do not allow arbitrary code execution; however, they could allow arbitrary code to be run if the attacker uses one in combination with another vulnerability, such as a remote code execution vulnerability, that can leverage the ASLR circumvention.</vuln:Note>
+        </vuln:Notes>
+        <vuln:CVE>CVE-2016-3262</vuln:CVE>
 		<vuln:ProductStatuses>
 
       <vuln:Status Type="Known Affected">
