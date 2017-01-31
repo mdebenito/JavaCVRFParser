@@ -1,4 +1,4 @@
-package es.mdbdev.cvrfparser.model.cvrf.documentreferences;
+package es.mdbdev.cvrfparser.model.cvrf.common;
 
 /**
  * Created by Mario on 28/01/2017.

@@ -1,6 +1,6 @@
 package es.mdbdev.cvrfparser.model.cvrf.documentnotes;
 
-import es.mdbdev.cvrfparser.model.cvrf.Note;
+import es.mdbdev.cvrfparser.model.cvrf.common.Note;
 
 import java.util.ArrayList;
 import java.util.List;

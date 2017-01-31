@@ -1,25 +1,36 @@
 package es.mdbdev.cvrfparser.model.cvrf.documentreferences;
 
+import es.mdbdev.cvrfparser.model.cvrf.common.Reference;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Mario on 28/01/2017.
  */
 public class DocumentReferences
 {
-    private es.mdbdev.cvrfparser.model.cvrf.vulnerability.Reference Reference;
-
-    public es.mdbdev.cvrfparser.model.cvrf.vulnerability.Reference getReference ()
-    {
-        return Reference;
+    public DocumentReferences(){
+        this.references = new ArrayList<Reference>();
+    }
+    public List<Reference> getReferences() {
+        return references;
     }
 
-    public void setReference (es.mdbdev.cvrfparser.model.cvrf.vulnerability.Reference Reference)
-    {
-        this.Reference = Reference;
+    public void setReferences(List<Reference> references) {
+        this.references = references;
     }
+
+    private List<Reference> references;
+
+    public void addReference(Reference r){
+        this.references.add(r);
+    }
+
 
     @Override
     public String toString()
     {
-        return "ClassPojo [Reference = "+Reference+"]";
+        return "ClassPojo [references = "+references+"]";
     }
 }

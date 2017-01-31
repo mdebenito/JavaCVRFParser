@@ -1,9 +1,11 @@
 package es.mdbdev.cvrfparser.xml;
 
 import es.mdbdev.cvrfparser.model.cvrf.Cvrfdoc;
+import es.mdbdev.cvrfparser.model.cvrf.common.*;
+import es.mdbdev.cvrfparser.model.cvrf.common.Reference;
+import es.mdbdev.cvrfparser.model.cvrf.documentreferences.DocumentReferences;
 import es.mdbdev.cvrfparser.model.cvrf.documenttracking.*;
 import es.mdbdev.cvrfparser.model.cvrf.vulnerability.*;
-import es.mdbdev.cvrfparser.model.cvrf.Note;
 import es.mdbdev.cvrfparser.model.cvrf.documentnotes.DocumentNotes;
 import es.mdbdev.cvrfparser.model.cvrf.documentpublisher.DocumentPublisher;
 import es.mdbdev.cvrfparser.model.cvrf.producttree.FullProductName;
@@ -75,6 +77,7 @@ public class CvrfParser {
         private Status crrntVulnerabilityStatus = null;
         private Threat crrntVulnerabilityThreat = null;
         private Remediation crrntVulnerabilityRemediation = null;
+        private Reference crrntDocumentReference = null;
 
         private boolean bDocType = false;
         private boolean bDocTitle = false;
@@ -110,6 +113,15 @@ public class CvrfParser {
         private boolean bVulnerabilityRemediation = false;
         private boolean bVulnerabilityRemediationDescription = false;
         private boolean bVulnerabilityRemediationURL = false;
+        private boolean bDocumentReferences = false;
+        private boolean bDocumentReference = false;
+        private boolean bDocumentReferenceURL = false;
+        private boolean bDocumentReferenceDescription = false;
+        private boolean bDocumentTracking = false;
+        private boolean bDocumentTrackingIdentification = false;
+        private boolean bDocumentTrackingID = false;
+        private boolean bVulnerabilityID = false;
+
 
         public XMLHandler() {
 
@@ -145,13 +157,15 @@ public class CvrfParser {
                 bIssuingAuthority = true;
             }else if (qName.equalsIgnoreCase("DocumentTracking")
                     || qName.equalsIgnoreCase("cvrf:DocumentTracking")) {
+                bDocumentTracking = true;
                 cvrfDocument.setDocumentTracking(new DocumentTracking());
-            }else if (qName.equalsIgnoreCase("Identification")
-                    || qName.equalsIgnoreCase("cvrf:Identification")) {
+            }else if ((qName.equalsIgnoreCase("Identification")&&bDocumentTracking)
+                    || (qName.equalsIgnoreCase("cvrf:Identification")&&bDocumentTracking)) {
                 cvrfDocument.getDocumentTracking().setIdentification(new Identification());
-            }else if (qName.equalsIgnoreCase("ID")
-                    || qName.equalsIgnoreCase("cvrf:ID")) {
-                bID = true;
+                bDocumentTrackingIdentification = true;
+            }else if ((qName.equalsIgnoreCase("ID")&&bDocumentTrackingIdentification)
+                    || (qName.equalsIgnoreCase("cvrf:ID") && bDocumentTrackingIdentification)) {
+                bDocumentTrackingID = true;
             }else if (qName.equalsIgnoreCase("Alias")
                     || qName.equalsIgnoreCase("cvrf:Alias")) {
                 bAlias = true;
@@ -201,6 +215,21 @@ public class CvrfParser {
                 crrntDocumentNote.setType(attributes.getValue("Type"));
                 crrntDocumentNote.setAudience(attributes.getValue("Audience"));
                 crrntDocumentNote.setTitle(attributes.getValue("Title"));
+            }else if (qName.equalsIgnoreCase("DocumentReferences")
+                    || qName.equalsIgnoreCase("cvrf:DocumentReferences")) {
+                bDocumentReferences = true;
+                cvrfDocument.setDocumentReferences(new DocumentReferences());
+            }else if ((qName.equalsIgnoreCase("Reference") && bDocumentReferences)
+                    || (qName.equalsIgnoreCase("cvrf:Reference") && bDocumentReferences)) {
+                bDocumentReference = true;
+                crrntDocumentReference = new Reference();
+                crrntDocumentReference.setType(attributes.getValue("Type"));
+            }else if ((qName.equalsIgnoreCase("URL") && bDocumentReference)
+                    || (qName.equalsIgnoreCase("cvrf:URL") && bDocumentReference)) {
+                bDocumentReferenceURL = true;
+            }else if ((qName.equalsIgnoreCase("Description") && bDocumentReference)
+                    || (qName.equalsIgnoreCase("cvrf:Description") && bDocumentReference)) {
+                bDocumentReferenceDescription = true;
             }else if (qName.equalsIgnoreCase("AggregateSeverity")
                     || qName.equalsIgnoreCase("cvrf:AggregateSeverity")) {
                 bAggregateSeverity = true;
@@ -220,6 +249,11 @@ public class CvrfParser {
             }else if ((qName.equalsIgnoreCase("Title") && bVulnerability)
                     || (qName.equalsIgnoreCase("vuln:Title") && bVulnerability)) {
                 bVulnerabilityTitle = true;
+            }else if ((qName.equalsIgnoreCase("ID") && bVulnerability)
+                    || (qName.equalsIgnoreCase("vuln:ID") && bVulnerability)) {
+                bVulnerabilityID = true;
+                crrntVulnerability.setID(new ID());
+                crrntVulnerability.getID().setSystemName(attributes.getValue("SystemName"));
             }else if ((qName.equalsIgnoreCase("Notes") && bVulnerability)
                     || (qName.equalsIgnoreCase("vuln:Notes") && bVulnerability)) {
                 bVulnerabilityNotes = true;
@@ -295,9 +329,9 @@ public class CvrfParser {
             }else if (bIssuingAuthority) {
                 cvrfDocument.getDocumentPublisher().setIssuingAuthority(value);
                 bIssuingAuthority = false;
-            }else if (bID) {
+            }else if (bDocumentTrackingID) {
                 cvrfDocument.getDocumentTracking().getIdentification().setID(value);
-                bID = false;
+                bDocumentTrackingID = false;
             }else if (bAlias) {
                 cvrfDocument.getDocumentTracking().getIdentification().setAlias(value);
                 bAlias = false;
@@ -327,6 +361,13 @@ public class CvrfParser {
                 bEngine = false;
             }else if (bNote && bDocumentNotes) {
                 crrntDocumentNote.setContent(value);
+                bNote = false;
+            }else if (bDocumentReferenceURL) {
+                crrntDocumentReference.setURL(value);
+                bDocumentReferenceURL = false;
+            }else if (bDocumentReferenceDescription) {
+                crrntDocumentReference.setDescription(value);
+                bDocumentReferenceDescription = false;
             }else if (bAggregateSeverity) {
                 cvrfDocument.setAggregateSeverity(value);
                 bAggregateSeverity = false;
@@ -342,6 +383,9 @@ public class CvrfParser {
             }else if (bVulnerabilityCVE) {
                 crrntVulnerability.setCVE(value);
                 bVulnerabilityCVE = false;
+            }else if (bVulnerabilityID) {
+                crrntVulnerability.getID().setContent(value);
+                bVulnerabilityID = false;
             }else if (bVulnerabilityProductID) {
                 crrntVulnerabilityStatus.addProductID(value);
                 bVulnerabilityProductID = false;
@@ -371,6 +415,32 @@ public class CvrfParser {
             }else if (qName.equalsIgnoreCase("DocumentNotes")
                     || qName.equalsIgnoreCase("cvrf:DocumentNotes")) {
                 bDocumentNotes = false;
+            }else if (qName.equalsIgnoreCase("DocumentTracking")
+                    || qName.equalsIgnoreCase("cvrf:DocumentTracking")) {
+                bDocumentTracking = false;
+            }else if ((qName.equalsIgnoreCase("Identification")&&bDocumentTracking)
+                    || (qName.equalsIgnoreCase("cvrf:Identification")&&bDocumentTracking)) {
+                bDocumentTrackingIdentification = false;
+            }else if ((qName.equalsIgnoreCase("ID")&&bDocumentTrackingIdentification)
+                    || (qName.equalsIgnoreCase("cvrf:ID") && bDocumentTrackingIdentification)) {
+                bDocumentTrackingID = false;
+            }else if (qName.equalsIgnoreCase("Alias")
+                    || qName.equalsIgnoreCase("cvrf:Alias")) {
+                bAlias = false;
+            }else if (qName.equalsIgnoreCase("Status")
+                    || qName.equalsIgnoreCase("cvrf:Status")) {
+                bDocumentTrackingStatus = false;
+            }else if (qName.equalsIgnoreCase("Version")
+                    || qName.equalsIgnoreCase("cvrf:Version")) {
+                bDocumentTrackingVersion = false;
+            }else if (qName.equalsIgnoreCase("DocumentReferences")
+                    || qName.equalsIgnoreCase("cvrf:DocumentReferences")) {
+                bDocumentReferences = false;
+            }else if ((qName.equalsIgnoreCase("Reference") && bDocumentReferences)
+                    || (qName.equalsIgnoreCase("cvrf:Reference") && bDocumentReferences)) {
+                bDocumentReference = false;
+                cvrfDocument.getDocumentReferences().addReference(crrntDocumentReference);
+                crrntDocumentReference = null;
             }else if ((qName.equalsIgnoreCase("Note") && bDocumentNotes)
                     || (qName.equalsIgnoreCase("cvrf:Note")  && bDocumentNotes)){
                 cvrfDocument.getDocumentNotes().addNote(crrntDocumentNote);
