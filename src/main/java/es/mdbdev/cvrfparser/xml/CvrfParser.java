@@ -182,11 +182,11 @@ public class CvrfParser {
                     || qName.equalsIgnoreCase("cvrf:Revision")) {
                 crrntRev = new Revision();
                 bRevision = true;
-            }else if (qName.equalsIgnoreCase("Number")
-                    || qName.equalsIgnoreCase("cvrf:Number")) {
+            }else if ((qName.equalsIgnoreCase("Number") && bRevision)
+                    || (qName.equalsIgnoreCase("cvrf:Number") && bRevision)) {
                 bRevisionNumber = true;
-            }else if (qName.equalsIgnoreCase("Date")
-                    || qName.equalsIgnoreCase("cvrf:Date")) {
+            }else if ((qName.equalsIgnoreCase("Date") && bRevision)
+                    || (qName.equalsIgnoreCase("cvrf:Date") && bRevision)) {
                 bRevisionDate = true;
             }else if ((qName.equalsIgnoreCase("Description") && bRevision)
                     || qName.equalsIgnoreCase("cvrf:Description")) {
