@@ -84,12 +84,12 @@ public class CvrfParser {
         private boolean bContactDetails = false;
         private boolean bIssuingAuthority = false;
         private boolean bID = false;
-        private boolean bAlias = false;
+        private boolean bDocumentTrackingAlias = false;
         private boolean bDocumentTrackingStatus = false;
         private boolean bDocumentTrackingVersion = false;
-        private boolean bRevisionNumber = false;
-        private boolean bRevisionDate = false;
-        private boolean bRevisionDescription = false;
+        private boolean bDocumentTrackingRevisionNumber = false;
+        private boolean bDocumentTrackingRevisionDate = false;
+        private boolean bDocumentTrackingRevisionDescription = false;
         private boolean bInitialReleaseDate = false;
         private boolean bCurrentReleaseDate = false;
         private boolean bDocumentNotes = false;
@@ -97,7 +97,7 @@ public class CvrfParser {
         private boolean bAggregateSeverity = false;
         private boolean bEngine = false;
         private boolean bFullProductName = false;
-        private boolean bRevision = false;
+        private boolean bDocumentTrackingRevision = false;
         private boolean bVulnerability = false;
         private boolean bVulnerabilityTitle = false;
         private boolean bVulnerabilityNotes = false;
@@ -121,6 +121,7 @@ public class CvrfParser {
         private boolean bDocumentTrackingIdentification = false;
         private boolean bDocumentTrackingID = false;
         private boolean bVulnerabilityID = false;
+        private boolean bDocumentTrackingRevisionHistory = false;
 
 
         public XMLHandler() {
@@ -166,31 +167,32 @@ public class CvrfParser {
             }else if ((qName.equalsIgnoreCase("ID")&&bDocumentTrackingIdentification)
                     || (qName.equalsIgnoreCase("cvrf:ID") && bDocumentTrackingIdentification)) {
                 bDocumentTrackingID = true;
-            }else if (qName.equalsIgnoreCase("Alias")
-                    || qName.equalsIgnoreCase("cvrf:Alias")) {
-                bAlias = true;
-            }else if (qName.equalsIgnoreCase("Status")
-                    || qName.equalsIgnoreCase("cvrf:Status")) {
+            }else if ((qName.equalsIgnoreCase("Alias")&&bDocumentTracking)
+                    || (qName.equalsIgnoreCase("cvrf:Alias")&&bDocumentTracking)) {
+                bDocumentTrackingAlias = true;
+            }else if ((qName.equalsIgnoreCase("Status")&&bDocumentTracking)
+                    || (qName.equalsIgnoreCase("cvrf:Status")&&bDocumentTracking)) {
                 bDocumentTrackingStatus = true;
-            }else if (qName.equalsIgnoreCase("Version")
-                    || qName.equalsIgnoreCase("cvrf:Version")) {
+            }else if ((qName.equalsIgnoreCase("Version")&&bDocumentTracking)
+                    || (qName.equalsIgnoreCase("cvrf:Version")&&bDocumentTracking)) {
                 bDocumentTrackingVersion = true;
-            }else if (qName.equalsIgnoreCase("RevisionHistory")
-                    || qName.equalsIgnoreCase("cvrf:RevisionHistory")) {
+            }else if ((qName.equalsIgnoreCase("RevisionHistory")&&bDocumentTracking)
+                    || (qName.equalsIgnoreCase("cvrf:RevisionHistory")&&bDocumentTracking)) {
                 cvrfDocument.getDocumentTracking().setRevisionHistory(new RevisionHistory());
-            }else if (qName.equalsIgnoreCase("Revision")
-                    || qName.equalsIgnoreCase("cvrf:Revision")) {
+                bDocumentTrackingRevisionHistory = true;
+            }else if ((qName.equalsIgnoreCase("Revision")&& bDocumentTrackingRevisionHistory)
+                    || (qName.equalsIgnoreCase("cvrf:Revision")&& bDocumentTrackingRevisionHistory)) {
                 crrntRev = new Revision();
-                bRevision = true;
-            }else if ((qName.equalsIgnoreCase("Number") && bRevision)
-                    || (qName.equalsIgnoreCase("cvrf:Number") && bRevision)) {
-                bRevisionNumber = true;
-            }else if ((qName.equalsIgnoreCase("Date") && bRevision)
-                    || (qName.equalsIgnoreCase("cvrf:Date") && bRevision)) {
-                bRevisionDate = true;
-            }else if ((qName.equalsIgnoreCase("Description") && bRevision)
-                    || qName.equalsIgnoreCase("cvrf:Description")) {
-                bRevisionDescription = true;
+                bDocumentTrackingRevision = true;
+            }else if ((qName.equalsIgnoreCase("Number") && bDocumentTrackingRevision)
+                    || (qName.equalsIgnoreCase("cvrf:Number") && bDocumentTrackingRevision)) {
+                bDocumentTrackingRevisionNumber = true;
+            }else if ((qName.equalsIgnoreCase("Date") && bDocumentTrackingRevision)
+                    || (qName.equalsIgnoreCase("cvrf:Date") && bDocumentTrackingRevision)) {
+                bDocumentTrackingRevisionDate = true;
+            }else if ((qName.equalsIgnoreCase("Description") && bDocumentTrackingRevision)
+                    || (qName.equalsIgnoreCase("cvrf:Description") && bDocumentTrackingRevision)) {
+                bDocumentTrackingRevisionDescription = true;
             }else if (qName.equalsIgnoreCase("InitialReleaseDate")
                     || qName.equalsIgnoreCase("cvrf:InitialReleaseDate")) {
                 bInitialReleaseDate = true;
@@ -332,24 +334,24 @@ public class CvrfParser {
             }else if (bDocumentTrackingID) {
                 cvrfDocument.getDocumentTracking().getIdentification().setID(value);
                 bDocumentTrackingID = false;
-            }else if (bAlias) {
+            }else if (bDocumentTrackingAlias) {
                 cvrfDocument.getDocumentTracking().getIdentification().setAlias(value);
-                bAlias = false;
+                bDocumentTrackingAlias = false;
             }else if (bDocumentTrackingStatus) {
                 cvrfDocument.getDocumentTracking().setStatus(value);
                 bDocumentTrackingStatus = false;
             }else if (bDocumentTrackingVersion) {
                 cvrfDocument.getDocumentTracking().setVersion(value);
                 bDocumentTrackingVersion = false;
-            }else if (bRevisionNumber) {
+            }else if (bDocumentTrackingRevisionNumber) {
                 crrntRev.setNumber(value);
-                bRevisionNumber = false;
-            }else if (bRevisionDate) {
+                bDocumentTrackingRevisionNumber = false;
+            }else if (bDocumentTrackingRevisionDate) {
                 crrntRev.setDate(value);
-                bRevisionDate = false;
-            }else if (bRevisionDescription) {
+                bDocumentTrackingRevisionDate = false;
+            }else if (bDocumentTrackingRevisionDescription) {
                 crrntRev.setDescription(value);
-                bRevisionDescription = false;
+                bDocumentTrackingRevisionDescription = false;
             }else if (bInitialReleaseDate) {
                 cvrfDocument.getDocumentTracking().setInitialReleaseDate(value);
                 bInitialReleaseDate = false;
@@ -407,26 +409,29 @@ public class CvrfParser {
             if (qName.equalsIgnoreCase("cvrfdoc")
                     || qName.equalsIgnoreCase("cvrf:cvrfdoc")) {
 
-            }else if (qName.equalsIgnoreCase("Revision")
-                    || qName.equalsIgnoreCase("cvrf:Revision")) {
-                cvrfDocument.getDocumentTracking().getRevisionHistory().addRevision(crrntRev);
-                crrntRev = null;
-                bRevision = false;
             }else if (qName.equalsIgnoreCase("DocumentNotes")
                     || qName.equalsIgnoreCase("cvrf:DocumentNotes")) {
                 bDocumentNotes = false;
+            }else if ((qName.equalsIgnoreCase("Revision")&& bDocumentTrackingRevisionHistory)
+                    || (qName.equalsIgnoreCase("cvrf:Revision")&& bDocumentTrackingRevisionHistory)) {
+                cvrfDocument.getDocumentTracking().getRevisionHistory().addRevision(crrntRev);
+                crrntRev = null;
+                bDocumentTrackingRevision = false;
             }else if (qName.equalsIgnoreCase("DocumentTracking")
                     || qName.equalsIgnoreCase("cvrf:DocumentTracking")) {
                 bDocumentTracking = false;
             }else if ((qName.equalsIgnoreCase("Identification")&&bDocumentTracking)
                     || (qName.equalsIgnoreCase("cvrf:Identification")&&bDocumentTracking)) {
                 bDocumentTrackingIdentification = false;
+            }else if ((qName.equalsIgnoreCase("RevisionHistory")&&bDocumentTracking)
+                    || (qName.equalsIgnoreCase("cvrf:RevisionHistory")&&bDocumentTracking)) {
+                bDocumentTrackingRevisionHistory = false;
             }else if ((qName.equalsIgnoreCase("ID")&&bDocumentTrackingIdentification)
                     || (qName.equalsIgnoreCase("cvrf:ID") && bDocumentTrackingIdentification)) {
                 bDocumentTrackingID = false;
             }else if (qName.equalsIgnoreCase("Alias")
                     || qName.equalsIgnoreCase("cvrf:Alias")) {
-                bAlias = false;
+                bDocumentTrackingAlias = false;
             }else if (qName.equalsIgnoreCase("Status")
                     || qName.equalsIgnoreCase("cvrf:Status")) {
                 bDocumentTrackingStatus = false;
