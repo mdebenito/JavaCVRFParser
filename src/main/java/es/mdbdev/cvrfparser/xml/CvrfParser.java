@@ -122,7 +122,7 @@ public class CvrfParser {
 
             if (qName.equalsIgnoreCase("cvrfdoc")) {
                 this.cvrfDocument = new Cvrfdoc();
-            } else if (qName.equalsIgnoreCase("DocumentPublisher")) {
+            }else if (qName.equalsIgnoreCase("DocumentPublisher")) {
                 bDocumentPublisher = true;
                 cvrfDocument.setDocumentPublisher(new DocumentPublisher());
             }else if (qName.equalsIgnoreCase("DocumentTracking")) {
