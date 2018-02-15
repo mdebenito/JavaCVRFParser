@@ -1,4 +1,4 @@
-package es.mdbdev.cvrfparser.model.cvrf.documenttracking;
+package es.mdbdev.cvrfparser.model.cvrf.common;
 
 import java.util.ArrayList;
 import java.util.List;

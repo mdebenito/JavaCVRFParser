@@ -1,5 +1,7 @@
 package es.mdbdev.cvrfparser.model.cvrf.documenttracking;
 
+import es.mdbdev.cvrfparser.model.cvrf.common.RevisionHistory;
+
 /**
  * Created by Mario on 28/01/2017.
  */
