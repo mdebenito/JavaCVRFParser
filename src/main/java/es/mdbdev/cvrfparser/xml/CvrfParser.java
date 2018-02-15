@@ -1,5 +1,7 @@
 package es.mdbdev.cvrfparser.xml;
 
+import es.mdbdev.cvrfparser.model.cvrf.common.Revision;
+import es.mdbdev.cvrfparser.model.cvrf.common.RevisionHistory;
 import es.mdbdev.cvrfparser.model.cvrf.Cvrfdoc;
 import es.mdbdev.cvrfparser.model.cvrf.common.*;
 import es.mdbdev.cvrfparser.model.cvrf.common.Reference;
@@ -89,6 +91,8 @@ public class CvrfParser {
         private boolean bVulnerabilityThreatsThreat = false;
         private boolean bVulnerabilityRemediations = false;
         private boolean bVulnerabilityRemediationsRemediation = false;
+        private boolean bVulnerabilityRevisionHistory = false;
+        private boolean bVulnerabilityRevisionHistoryRevision = false;
         private boolean bDocumentReferences = false;
         private boolean bDocumentReferencesReference = false;
         private boolean bDocumentTracking = false;
@@ -200,6 +204,12 @@ public class CvrfParser {
                 bVulnerabilityRemediationsRemediation = true;
                 crrntVulnerabilityRemediation = new Remediation();
                 crrntVulnerabilityRemediation.setType(attributes.getValue("Type"));
+            }else if ((qName.equalsIgnoreCase("RevisionHistory")&&bVulnerability)) {
+                bVulnerabilityRevisionHistory = true;
+                crrntVulnerability.setRevisionHistory(new RevisionHistory());
+            }else if ((qName.equalsIgnoreCase("Revision")&& bVulnerabilityRevisionHistory)) {
+                bVulnerabilityRevisionHistoryRevision = true;
+                crrntRev = new Revision();
             }
         }
 
@@ -328,6 +338,18 @@ public class CvrfParser {
                 crrntVulnerabilityRemediation.setDescription(chars.toString());
             }else if ((qName.equalsIgnoreCase("URL") && bVulnerabilityRemediationsRemediation)) {
                 crrntVulnerabilityRemediation.setURL(chars.toString());
+            }else if ((qName.equalsIgnoreCase("RevisionHistory")&&bVulnerability)) {
+                bVulnerabilityRevisionHistory = false;
+            }else if ((qName.equalsIgnoreCase("Revision")&& bVulnerabilityRevisionHistory)) {
+                crrntVulnerability.getRevisionHistory().addRevision(crrntRev);
+                crrntRev = null;
+                bVulnerabilityRevisionHistoryRevision = false;
+            }else if ((qName.equalsIgnoreCase("Number") && bVulnerabilityRevisionHistoryRevision)) {
+                crrntRev.setNumber(chars.toString());
+            }else if ((qName.equalsIgnoreCase("Date") && bVulnerabilityRevisionHistoryRevision)) {
+                crrntRev.setDate(chars.toString());
+            }else if ((qName.equalsIgnoreCase("Description") && bVulnerabilityRevisionHistoryRevision)) {
+                crrntRev.setDescription(chars.toString());
             }
         }
 
