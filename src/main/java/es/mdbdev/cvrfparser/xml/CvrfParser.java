@@ -316,6 +316,8 @@ public class CvrfParser {
                 crrntVulnerabilityThreat = null;
             }else if ((qName.equalsIgnoreCase("Description") && bVulnerabilityThreatsThreat)) {
                 crrntVulnerabilityThreat.setDescription(chars.toString());
+            }else if ((qName.equalsIgnoreCase("ProductID") && bVulnerabilityThreatsThreat)) {
+                crrntVulnerabilityThreat.addProductID(chars.toString());
             }else if ((qName.equalsIgnoreCase("Remediations") && bVulnerability)) {
                 bVulnerabilityRemediations = false;
             }else if ((qName.equalsIgnoreCase("Remediation") && bVulnerabilityRemediations)) {
